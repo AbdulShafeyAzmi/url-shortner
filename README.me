@@ -1,3 +1,114 @@
-This project is all about converting web url into some dummy code
-Adjust readme file
+URL Shortener
+A simple URL shortener service built with Node.js, Express, MongoDB, and Mongoose.
+
+Features
+Shorten long URLs
+Redirect shortened URLs to the original URLs
+Track the number of clicks for each shortened URL
+Prerequisites
+Node.js (>=14.x)
+MongoDB (>=4.x)
+Git
+Installation
+Clone the repository:
+
+bash
+Copy code
+git clone https://github.com/yourusername/url-shortener.git
+cd url-shortener
+Install dependencies:
+
+bash
+Copy code
+npm install
+Set up environment variables:
+
+Create a .env file in the root directory and add the following environment variables:
+
+bash
+Copy code
+PORT=5000
+MONGO_URI=your_mongo_connection_string
+BASE_URL=http://localhost:5000
+Start the server:
+
+bash
+Copy code
+npm start
+Usage
+Shorten a URL:
+
+Send a POST request to /api/url/shorten with the original URL in the request body.
+
+Example using curl:
+
+bash
+Copy code
+curl -X POST -H "Content-Type: application/json" -d '{"longUrl":"https://www.example.com"}' http://localhost:5000/api/url/shorten
+The response will include the shortened URL.
+
+Redirect to the original URL:
+
+Access the shortened URL in your browser. For example, if the shortened URL is http://localhost:5000/abc123, it will redirect to the original URL.
+
+API Endpoints
+POST /api/url/shorten: Shortens a given URL.
+
+Request body:
+json
+Copy code
+{
+  "longUrl": "https://www.example.com"
+}
+Response:
+json
+Copy code
+{
+  "shortUrl": "http://localhost:5000/abc123"
+}
+GET /:code: Redirects to the original URL.
+
+Project Structure
+plaintext
+Copy code
+url-shortener/
+├── config/
+│   └── db.js          # Database connection configuration
+├── controllers/
+│   └── urlController.js # URL controller logic
+├── models/
+│   └── Url.js         # URL schema and model
+├── routes/
+│   └── urlRoutes.js   # URL-related routes
+├── .env               # Environment variables
+├── .gitignore         # Git ignore file
+├── package.json       # NPM package file
+├── README.md          # Project README
+└── server.js          # Entry point of the application
+Dependencies
+express: Fast, unopinionated, minimalist web framework for Node.js.
+mongoose: Elegant MongoDB object modeling for Node.js.
+valid-url: URI validation functions.
+Development
+Nodemon: Automatically restarts the server when file changes are detected.
+
+To start the development server:
+
+bash
+Copy code
+npm run dev
+License
+This project is licensed under the MIT License.
+
+Acknowledgements
+Inspired by various online tutorials and projects.
+
+Replace placeholder values like your_mongo_connection_string and https://github.com/yourusername/url-shortener.git with actual values relevant to your project. This README provides a comprehensive overview of the project, from installation to usage and development.
+
+
+
+
+
+
+
 
